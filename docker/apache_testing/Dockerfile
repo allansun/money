@@ -8,6 +8,9 @@ RUN apt-get update && \
 # Install PHPUnit
 # No xDebug to improve performance
 RUN composer global require "phpunit/phpunit=5.0.*"
+    pecl channel-update pecl.php.net && \
+	pecl install xdebug
+
 
 # php.ini settings
 ADD php_extra.ini /etc/php5/php_extra.ini
