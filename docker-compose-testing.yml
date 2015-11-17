@@ -1,0 +1,43 @@
+# maria:
+#   image: mariadb
+# #  build:
+# #    docker/mariadb
+#   volumes:
+#     - ./docker/data:/var/lib/mysql
+#     - ./docker/mariadb:/init
+#     - ./docker/mariadb/seed-data:/docker-entrypoint-initdb.d
+#   environment:
+#     - MYSQL_ROOT_PASSWORD=ShotNowVerbEssential
+#     - MYSQL_USER=birdsystem
+#     - MYSQL_PASSWORD=BatTrapComfortableFootball
+#     - MYSQL_DATABASE=birdsystem
+#   command: "/init/init.sh"
+#   ports:
+#     - '3306:3306'
+
+#phpmyadmin:
+#  environment:
+#   - VIRTUAL_HOST=mysql.birdsystemtest.domaingoeshere.com
+#  expose:
+#   - '80'
+#  ports:
+#   - '4309:80'
+#  image: yoshz/phpmyadmin:latest
+#  links:
+#   - maria:db
+
+#redis:
+#  image: redis
+
+#apache-base:
+#  build: docker/apache_base
+
+
+apache-testing:
+  build: docker/apache_testing
+  # links:
+  #   - maria:db
+#    - "redis:redis"
+  volumes:
+    - ./:/var/www/html
+  mem_limit: "2048MB"
