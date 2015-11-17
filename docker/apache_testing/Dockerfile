@@ -10,8 +10,7 @@ RUN apt-get update && \
 RUN apt-get install -y ant && \
 	composer global require "phpunit/phpunit=5.0.*" && \
     pecl channel-update pecl.php.net && \
-	pecl install xdebug && \
-	/etc/init.d/apache2 restart
+	pecl install xdebug
 
 
 # php.ini settings
